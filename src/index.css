@@ -1,5 +1,5 @@
 /* ========================================
-   SalesPilot CRM — Design System & Global Styles
+   SalesPilot CRM ??Design System & Global Styles
    ======================================== */
 
 /* --- CSS Custom Properties --- */
@@ -82,70 +82,6 @@
   /* Layout */
   --container-max: 1200px;
   --navbar-height: 72px;
-}
-
-/* --- Light Mode Overrides --- */
-[data-theme='light'] {
-  --color-bg: #f8fafc;
-  --color-bg-elevated: #ffffff;
-  --color-bg-card: #ffffff;
-  --color-bg-card-hover: #f1f5f9;
-  --color-surface: #e2e8f0;
-
-  --color-primary: #4f46e5;
-  --color-primary-light: #6366f1;
-  --color-primary-dark: #3730a3;
-  --color-primary-glow: rgba(79, 70, 229, 0.15);
-
-  --color-accent: #0891b2;
-  --color-accent-light: #06b6d4;
-
-  --color-text: #0f172a;
-  --color-text-secondary: #475569;
-  --color-text-muted: #64748b;
-  --color-text-inverse: #ffffff;
-
-  --color-border: rgba(15, 23, 42, 0.08);
-  --color-border-hover: rgba(15, 23, 42, 0.15);
-
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 24px 24px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-
-  background-color: var(--color-bg);
-  color: var(--color-text);
-}
-
-/* --- Light Mode Overrides --- */
-[data-theme='light'] {
-  --color-bg: #f8fafc;
-  --color-bg-elevated: #ffffff;
-  --color-bg-card: #ffffff;
-  --color-bg-card-hover: #f1f5f9;
-  --color-surface: #e2e8f0;
-
-  --color-primary: #4f46e5;
-  --color-primary-light: #6366f1;
-  --color-primary-dark: #3730a3;
-  --color-primary-glow: rgba(79, 70, 229, 0.15);
-
-  --color-accent: #0891b2;
-  --color-accent-light: #06b6d4;
-
-  --color-text: #0f172a;
-  --color-text-secondary: #475569;
-  --color-text-muted: #64748b;
-  --color-text-inverse: #ffffff;
-
-  --color-border: rgba(15, 23, 42, 0.08);
-  --color-border-hover: rgba(15, 23, 42, 0.15);
-
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 24px 24px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-
-  background-color: var(--color-bg);
-  color: var(--color-text);
 }
 
 /* --- Reset & Base --- */
@@ -1341,74 +1277,87 @@ button {
 }
 
 @media (max-width: 480px) {
-  .footer__columns {
-    grid-template-columns: 1fr;
+  @media (max-width: 480px) {
+    .footer__columns {
+      grid-template-columns: 1fr;
+    }
   }
-}
 
-/* ========================================
-   COOKIE CONSENT
+  /* ======================================== 
+   FAQ 
    ======================================== */
-.cookie-consent {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  padding: var(--space-4) 0;
-  background: var(--color-bg-elevated);
-  border-top: 1px solid var(--color-border);
-  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: slideUp var(--transition-base);
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
+  .faq {
+    padding: var(--space-24) 0;
+    background: var(--color-bg);
+    position: relative;
   }
 
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.cookie-consent__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-6);
-}
-
-.cookie-consent__content {
-  flex: 1;
-}
-
-.cookie-consent__title {
-  font-size: var(--text-lg);
-  font-weight: 700;
-  margin-bottom: var(--space-2);
-  color: var(--color-text);
-}
-
-.cookie-consent__text {
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
-  line-height: 1.5;
-  margin: 0;
-}
-
-.cookie-consent__actions {
-  flex-shrink: 0;
-}
-
-@media (max-width: 768px) {
-  .cookie-consent__inner {
+  .faq__list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
     flex-direction: column;
-    text-align: center;
+    gap: var(--space-4);
   }
-}
+
+  .faq-item {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-base);
+  }
+
+  .faq-item:hover {
+    border-color: var(--color-border-hover);
+    background: var(--color-bg-card-hover);
+  }
+
+  .faq-item--open {
+    border-color: var(--color-primary-glow);
+    box-shadow: 0 0 20px var(--color-primary-glow);
+  }
+
+  .faq-item__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-5) var(--space-6);
+    text-align: left;
+    transition: background var(--transition-fast);
+  }
+
+  .faq-item__question {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-text);
+    padding-right: var(--space-4);
+  }
+
+  .faq-item__icon {
+    color: var(--color-text-muted);
+    transition: transform var(--transition-base);
+    flex-shrink: 0;
+  }
+
+  .faq-item--open .faq-item__icon {
+    transform: rotate(180deg);
+    color: var(--color-primary-light);
+  }
+
+  .faq-item__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-slow) ease-in-out;
+  }
+
+  .faq-item--open .faq-item__content {
+    max-height: 500px;
+  }
+
+  .faq-item__answer {
+    padding: 0 var(--space-6) var(--space-6);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
